@@ -1,0 +1,12 @@
+[project]
+name = "control"
+version = "0.1.0"
+description = "Robot control scripts for FFW - joint presets, keyboard teleop, and init pose from LeRobot data"
+requires-python = ">=3.10"
+dependencies = [
+    "lerobot==0.3.3",
+    "numpy",
+    "opencv-python",
+    "pyarrow",
+    "scikit-image",
+]

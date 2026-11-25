@@ -1,5 +1,9 @@
 # FFW Teleop VR — SG2 Robot Control with Meta Quest 3
 
+> Archived custom implementation, superseded in this setup by official ROBOTIS
+> VR support. The instructions below are historical. `custom/archive/COLCON_IGNORE`
+> excludes this package from normal workspace discovery and builds.
+
 VR teleoperation package for controlling the SG2 robot using a Meta Quest 3 headset with motion controllers. Built on [Vuer](https://github.com/vuer-ai/vuer) (WebXR) and ROS2.
 
 Supports two network scenarios — same nodes, different machines:
@@ -43,10 +47,10 @@ source install/setup.bash
 
 ### 1. SSL Certificates
 
-The Quest 3 browser requires HTTPS for WebXR. Pre-generated self-signed certs are included in `custom/ffw_teleop_vr/cert/`. To regenerate from the repository root:
+The Quest 3 browser requires HTTPS for WebXR. Pre-generated self-signed certs are included in `custom/archive/robot/teleop/ffw_teleop_vr/cert/`. To regenerate from the repository root:
 
 ```bash
-cd custom/ffw_teleop_vr/cert
+cd custom/archive/robot/teleop/ffw_teleop_vr/cert
 openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes -subj '/CN=localhost'
 ```
 
@@ -334,11 +338,11 @@ The consumer then computes each controller pose relative to the head, and maps i
 
 ### Sync code to the robot
 
-After editing on your dev machine, copy `custom/ffw_teleop_vr/` to the robot with your preferred file sync tool.
+After editing on your dev machine, copy `custom/archive/robot/teleop/ffw_teleop_vr/` to the robot with your preferred file sync tool.
 
 ```bash
 # From the repo root, for example:
-rsync -av custom/ffw_teleop_vr/ user@robot-ip:/path/to/ai_worker/custom/ffw_teleop_vr/
+rsync -av custom/archive/robot/teleop/ffw_teleop_vr/ user@robot-ip:/path/to/ai_worker/custom/archive/robot/teleop/ffw_teleop_vr/
 ```
 
 ### Build on the robot
